@@ -1,0 +1,32 @@
+{
+  "preview": {
+    "button": {
+      "selectall": "Select all",
+      "skip": "Skip"
+    }
+  },
+  "summary": {
+    "block": {
+      "button": {
+        "remove": "Remove \"<1>{item.name}</1>\""
+      },
+      "additemplaceholder": "Click here to add item"
+    },
+    "view": {
+      "header": "Travel check list",
+      "description": {
+        "info": "Finally verify your check list in case you forgot something to add",
+        "howtoremove": "To remove item from the list simply click on it",
+        "popup": "Warning: In some browsers you might need to allow blocked pop-ups"
+      },
+      "button": {
+        "makepdf": "Make PDF"
+      }
+    }
+  },
+  "main": {
+    "button": {
+      "next": "Next"
+    }
+  }
+}
