@@ -29,7 +29,7 @@ export class CheckList extends React.Component<Props, State> {
       currentIndex: 0,
       categories,
       categoriesCount,
-      showResultList: true,
+      showResultList: false,
     };
   }
 
@@ -37,7 +37,9 @@ export class CheckList extends React.Component<Props, State> {
     const isSelected = this.state.categories[catId].items[itemId].selected;
     this.setState(
       update(this.state, {
-        categories: { [catId]: { items: { [itemId]: { selected: { $set: !isSelected } } } } },
+        categories: {
+          [catId]: { items: { [itemId]: { selected: { $set: !isSelected } } } },
+        },
       }),
     );
   };

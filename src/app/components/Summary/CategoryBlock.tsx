@@ -29,10 +29,9 @@ export class CategoryBlock extends React.PureComponent<Props> {
     const items = Object.entries(this.props.items).reduce((acc, [itemId, item]) => {
       if (item.selected) {
         acc.push(
-          <NamespacesConsumer>
+          <NamespacesConsumer key={`pwb${this.props.catId}_${itemId}`}>
             {t => (
               <Popover
-                key={`pwb${this.props.catId}_${itemId}`}
                 interactionKind={PopoverInteractionKind.CLICK}
                 popoverClassName="bp3-popover-content-sizing"
                 position={Position.RIGHT}
