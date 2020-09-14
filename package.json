@@ -62,7 +62,7 @@
     "i18next-parser": "^1.0.0-beta34",
     "i18next-scanner": "^2.9.1",
     "image-webpack-loader": "^5.0.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
