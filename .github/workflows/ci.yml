@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     branches:
-      - master
+      - vue
   pull_request:
     branches:
       - master
@@ -45,3 +45,14 @@ jobs:
       - name: Run linter 👀
         run: yarn lint
 
+      - name: Generate static site ⚡️
+        run: yarn generate
+
+      - name: Deploy to GitHub Pages 🚀
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
