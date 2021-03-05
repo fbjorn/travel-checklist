@@ -80,8 +80,10 @@ export default {
   },
 
   yandexMetrika: {
-    id: "73317133",
-    webvisor: false,
+    id: 73317133,
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
