@@ -35,6 +35,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
+    "@nuxtjs/yandex-metrika",
     "nuxt-i18n",
     [
       "nuxt-fontawesome",
@@ -70,9 +71,17 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    icon: {
+      source: "static/images/logo.png",
+    },
     manifest: {
       lang: "en",
     },
+  },
+
+  yandexMetrika: {
+    id: "73317133",
+    webvisor: false,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
