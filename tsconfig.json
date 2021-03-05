@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES2018",
-    "module": "ESNext",
+    "module": "commonjs",
     "moduleResolution": "Node",
-    "lib": [
-      "ESNext",
-      "ESNext.AsyncIterable",
-      "DOM"
-    ],
+    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
@@ -16,21 +13,10 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/*": [
-        "./*"
-      ]
+      "~/*": ["./*"],
+      "@/*": ["./*"]
     },
-    "types": [
-      "@nuxt/types",
-      "@types/node"
-    ]
+    "types": ["@nuxt/types", "@types/node", "nuxt-i18n"]
   },
-  "exclude": [
-    "node_modules",
-    ".nuxt",
-    "dist"
-  ]
+  "exclude": ["node_modules", ".nuxt", "dist"]
 }
