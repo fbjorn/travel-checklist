@@ -8,20 +8,6 @@
   </div>
 </template>
 
-<style lang="sass">
-@import "assets/styles/globals"
-@import "~bulma"
-
-.main
-  +flex-column
-  min-height: 100vh
-
-  .main-content
-    +flex-column
-    flex: 1
-    padding: 0.5rem
-</style>
-
 <script>
 export default {
   head() {
@@ -99,3 +85,17 @@ export default {
   },
 }
 </script>
+
+<style lang="sass">
+@import "assets/styles/globals"
+@import "~bulma"
+
+.main
+  +flex-column
+  min-height: 100vh
+
+  .main-content
+    +flex-column
+    flex: 1
+    padding: 0.5rem
+</style>
