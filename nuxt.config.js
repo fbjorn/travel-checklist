@@ -51,14 +51,6 @@ export default {
         ],
       },
     ],
-    // [
-    //   "nuxt-matomo",
-    //   {
-    //     matomoUrl: "//matomo.fbjorn.cc/",
-    //     siteId: 1,
-    //     cookies: false,
-    //   },
-    // ],
   ],
 
   i18n: {

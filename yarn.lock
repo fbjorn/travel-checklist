@@ -6145,11 +6145,6 @@ nuxt-i18n@^6.20.0:
     klona "^2.0.4"
     vue-i18n "^8.18.1"
 
-nuxt-matomo@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/nuxt-matomo/-/nuxt-matomo-1.2.4.tgz#2cd3f212996e0c35ade08f23563987438608e469"
-  integrity sha512-09cIWnj6v58CMbEDS+mVTnJ97BaO/fJaQDPk31sa27jejcD80bIvNowkAJMj4OcVWMeeIVTljClMHE6249cFtw==
-
 nuxt@^2.14.12:
   version "2.14.12"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.14.12.tgz#836096ff62ba72554b73744d94f5547109e563f7"

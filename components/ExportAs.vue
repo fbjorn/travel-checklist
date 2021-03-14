@@ -26,12 +26,8 @@ import Vue from "vue"
 import { Component, Prop } from "vue-property-decorator"
 import { TCategory } from "~/src/check-list-items"
 import { createEvernoteExportFile, makeHeader, makeTodo } from "~/src/evernote"
-
-declare global {
-  interface Window {
-    _paq: any
-  }
-}
+import { trackGoal } from "~/src/matomo"
+import settings from "~/src/settings"
 
 @Component
 export default class ExportAs extends Vue {
@@ -45,12 +41,12 @@ export default class ExportAs extends Vue {
   title!: string
 
   exportAsAppleNotes() {
-    window._paq.push(["trackGoal", 1])
+    trackGoal(settings.matomo.GOAL_APPLE_NOTES)
     this.exportAsEnex()
   }
 
   exportAsEvernote() {
-    window._paq.push(["trackGoal", 2])
+    trackGoal(settings.matomo.GOAL_EVERNOTE)
     this.exportAsEnex()
   }
 
