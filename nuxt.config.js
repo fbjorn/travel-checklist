@@ -58,7 +58,6 @@ export default {
         matomoUrl: "//matomo.fbjorn.cc/",
         siteId: 1,
         cookies: false,
-        consentRequired: true,
       },
     ],
   ],

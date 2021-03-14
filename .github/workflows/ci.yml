@@ -48,14 +48,12 @@ jobs:
       - name: Generate static site ⚡️
         run: yarn generate
 
-      - name: Create CNAME file 😳
-        run: echo "travel.fbjorn.cc" > dist/CNAME
-
       - name: Deploy to GitHub Pages 🚀
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
           build_dir: dist
+          fqdn: travel.fbjorn.cc
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
