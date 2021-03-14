@@ -4,12 +4,12 @@
     <app-button
       name="Apple notes"
       icon="/images/apple-notes-logo.png"
-      @click="exportAsEnex"
+      @click="exportAsAppleNotes"
     />
     <app-button
       name="Evernote"
       icon="/images/evernote-logo.png"
-      @click="exportAsEnex"
+      @click="exportAsEvernote"
     />
     <div class="description">
       <p>By clicking on either option, you'll be prompted to save a file.</p>
@@ -37,6 +37,16 @@ export default class ExportAs extends Vue {
 
   @Prop({ required: true, type: String })
   title!: string
+
+  exportAsAppleNotes() {
+    this.$matomo.trackGoal(1)
+    this.exportAsEnex()
+  }
+
+  exportAsEvernote() {
+    this.$matomo.trackGoal(2)
+    this.exportAsEnex()
+  }
 
   exportAsEnex() {
     let content = ""
