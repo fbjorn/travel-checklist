@@ -35,7 +35,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
-    "@nuxtjs/yandex-metrika",
     "nuxt-i18n",
     [
       "nuxt-fontawesome",
@@ -50,6 +49,16 @@ export default {
           //   icons: ["fab"],
           // },
         ],
+      },
+    ],
+
+    [
+      "nuxt-matomo",
+      {
+        matomoUrl: "//matomo.fbjorn.cc/",
+        siteId: 1,
+        cookies: false,
+        consentRequired: true,
       },
     ],
   ],
@@ -77,13 +86,6 @@ export default {
     manifest: {
       lang: "en",
     },
-  },
-
-  yandexMetrika: {
-    id: 73317133,
-    clickmap: true,
-    trackLinks: true,
-    accurateTrackBounce: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
