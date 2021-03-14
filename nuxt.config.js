@@ -20,7 +20,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: "~/plugins/vue-matomo.js", ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -51,15 +51,14 @@ export default {
         ],
       },
     ],
-
-    [
-      "nuxt-matomo",
-      {
-        matomoUrl: "//matomo.fbjorn.cc/",
-        siteId: 1,
-        cookies: false,
-      },
-    ],
+    // [
+    //   "nuxt-matomo",
+    //   {
+    //     matomoUrl: "//matomo.fbjorn.cc/",
+    //     siteId: 1,
+    //     cookies: false,
+    //   },
+    // ],
   ],
 
   i18n: {

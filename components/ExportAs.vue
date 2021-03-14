@@ -27,6 +27,12 @@ import { Component, Prop } from "vue-property-decorator"
 import { TCategory } from "~/src/check-list-items"
 import { createEvernoteExportFile, makeHeader, makeTodo } from "~/src/evernote"
 
+declare global {
+  interface Window {
+    _paq: any
+  }
+}
+
 @Component
 export default class ExportAs extends Vue {
   // TODO: Find a way to not pass this huge data twice as properties
@@ -39,12 +45,12 @@ export default class ExportAs extends Vue {
   title!: string
 
   exportAsAppleNotes() {
-    this.$matomo.trackGoal(1)
+    window._paq.push(["trackGoal", 1])
     this.exportAsEnex()
   }
 
   exportAsEvernote() {
-    this.$matomo.trackGoal(2)
+    window._paq.push(["trackGoal", 2])
     this.exportAsEnex()
   }
 
