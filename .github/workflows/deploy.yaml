@@ -1,0 +1,38 @@
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches:
+      - svelte
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Install dependencies 👨🏻‍💻
+        run: pnpm install
+
+      - name: Generate static site ⚡️
+        run: pnpm build
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: build
+          fqdn: travel.fbjorn.cc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

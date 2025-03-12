@@ -1,0 +1,28 @@
+$breakpoint-sm: 0px;
+$breakpoint-md: 576px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1920px;
+
+@mixin mobile {
+  @media (max-width: calc($breakpoint-md - 1px)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-md) and (max-width: calc($breakpoint-lg - 1px)) {
+    @content;
+  }
+}
+
+@mixin tablet-and-below {
+  @media (max-width: calc($breakpoint-lg - 1px)) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
