@@ -6,21 +6,19 @@ on:
       - svelte
 
 jobs:
-  ci:
+  Publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@latest
+        uses: actions/checkout@v4
 
       - name: Setup node env 🏗
-        uses: actions/setup-node@latest
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
+        run: npm install -g pnpm
 
       - name: Install dependencies 👨🏻‍💻
         run: pnpm install
