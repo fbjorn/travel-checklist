@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Button from '$lib/components/Button.svelte';
 	import Category from '$lib/components/Category.svelte';
 	import { AllInOne, makeChecklist, Extras } from '$lib/data/templates';
 	import EditIcon from '$lib/assets/edit-icon.svg?component';
 	import SEO from '$lib/components/SEO.svelte';
 	import type { Extra } from '$lib/types';
-	import AppleNotes from '$lib/components/AppleNotes.svelte';
+	import { Button } from '$lib/components/ui/button';
+	import { Input } from '$lib/components/ui/input';
 
 	let isEditing = $state(false);
 	let checklist = $state(makeChecklist(AllInOne));
@@ -16,7 +16,7 @@
 			const name = item.fn();
 			const sectionType = item.section ?? extra.defaultSection;
 			for (const section of checklist.sections) {
-				if (section.type === sectionType && !section.items.find(i => i.name === name)) {
+				if (section.type === sectionType && !section.items.find((i) => i.name === name)) {
 					section.items.push({ name });
 					break;
 				}
@@ -32,19 +32,26 @@
 	description="Create your own checklist for your next trip."
 	image="https://travel.fbjorn.cc/i/social-media-logo.png"
 />
-<div class="container">
-	<div class="checklist-name-wrapper">
-		<input bind:value={checklist.name} />
+<div class="container2">
+	<div class="flex justify-center mt-10 mb-4">
+		<Input
+			class="font-medium max-w-[20rem] text-center md:text-xl"
+			bind:value={checklist.name}
+		/>
 	</div>
 	<div class="extras">
 		{#each Extras as extra, index}
-			<button class="extra-btn" disabled={usedExtras[index]} onclick={() => addExtra(extra, index)}>
+			<Button
+				class="bg-gradient-to-r from-indigo-500 to-indigo-600"
+				disabled={usedExtras[index]}
+				onclick={() => addExtra(extra, index)}
+			>
 				{extra.emoji}{' '}{extra.fn()}
-			</button>
+			</Button>
 		{/each}
 	</div>
-	<div class="edit-wrapper">
-		<Button Icon={EditIcon} onclick={() => (isEditing = !isEditing)}>Edit</Button>
+	<div class="mb-4">
+		<Button variant="outline" Icon={EditIcon} onclick={() => (isEditing = !isEditing)}>Edit</Button>
 	</div>
 	<div class="categories">
 		{#each checklist.sections as section}
@@ -52,18 +59,15 @@
 		{/each}
 	</div>
 
-	<div class="export">
-		<h3>Export</h3>
-		<div class="export-buttons">
-			<AppleNotes {checklist} />
-		</div>
+	<div class="flex justify-center my-8">
+		<Button>Save {checklist.name}</Button>
 	</div>
 </div>
 
 <style lang="scss">
 	@use '$lib/styles/mixins.scss' as *;
 
-	.container {
+	.container2 {
 		display: flex;
 		flex-direction: column;
 		max-width: 60rem;

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../app.css';
 	import '$lib/styles/globals.scss';
 	import '@fontsource-variable/nunito';
 	import '@fontsource-variable/manrope';
