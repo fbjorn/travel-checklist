@@ -71,6 +71,13 @@
 	</div>
 	
 	<div class="flex flex-col items-center justify-center flex-grow space-y-8 text-xl">
+        <a 
+			href="/" 
+			class="hover:text-indigo-600 transition-colors"
+			onclick={toggleMobileMenu}
+		>
+			New checklist
+		</a>
 		<a 
 			href="/about" 
 			class="hover:text-indigo-600 transition-colors"
@@ -79,7 +86,7 @@
 			About
 		</a>
 		<a 
-			href="/my-checklists" 
+			href="/checklists" 
 			class="hover:text-indigo-600 transition-colors"
 			onclick={toggleMobileMenu}
 		>
