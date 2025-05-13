@@ -59,6 +59,28 @@ const Extras: Extra[] = [
 		emoji: '🎮',
 		defaultSection: SectionType.Electronics,
 		items: [{ fn: m.gaming_console }, { fn: m.gaming_console_charger }]
+	},
+	{
+		fn: m.skipper,
+		emoji: '⛵️',
+		defaultSection: SectionType.Clothes,
+		items: [
+			{ fn: m.skipper_license, section: SectionType.MustHave },
+			{ fn: m.walkie_talkie, section: SectionType.Electronics },
+			{ fn: m.sea_navigation, section: SectionType.Electronics }
+		]
+	},
+	{
+		fn: m.sailing,
+		emoji: '⛵️',
+		defaultSection: SectionType.Clothes,
+		items: [
+			{ fn: m.sailing_gloves },
+			{ fn: m.jacket },
+			{ fn: m.fleece_jacket },
+			{ fn: m.crocs },
+			{ fn: m.beach_towel, section: SectionType.Miscelaneous }
+		]
 	}
 ];
 
@@ -75,7 +97,7 @@ const BaseTemplate: ChecklistConfig = {
 				m.phone,
 				m.wallet,
 				m.bookings,
-				m.insurance,
+				m.insurance
 			]
 		},
 		{
@@ -85,12 +107,7 @@ const BaseTemplate: ChecklistConfig = {
 		{
 			type: SectionType.JustBeforeLeaving,
 			priority: 2,
-			items: [
-				m.turn_off_devices,
-				m.turn_off_water,
-				m.check_garbage,
-				m.close_windows,
-			]
+			items: [m.turn_off_devices, m.turn_off_water, m.check_garbage, m.close_windows]
 		},
 		{
 			type: SectionType.Clothes,

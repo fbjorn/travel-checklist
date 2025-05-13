@@ -13,12 +13,11 @@
 	function addExtra(extra: Extra, index: number) {
 		usedExtras[index] = true;
 		for (const item of extra.items) {
+			const name = item.fn();
 			const sectionType = item.section ?? extra.defaultSection;
 			for (const section of checklist.sections) {
-				if (section.type === sectionType) {
-					section.items.push({
-						name: item.fn()
-					});
+				if (section.type === sectionType && !section.items.find(i => i.name === name)) {
+					section.items.push({ name });
 					break;
 				}
 			}
@@ -31,7 +30,7 @@
 <SEO
 	siteName="Travel Checklist"
 	description="Create your own checklist for your next trip."
-	image="https://vacaychecklist.com/og-image.png"
+	image="https://travel.fbjorn.cc/i/social-media-logo.png"
 />
 <div class="container">
 	<div class="checklist-name-wrapper">
