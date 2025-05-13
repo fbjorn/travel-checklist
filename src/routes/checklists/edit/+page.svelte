@@ -6,16 +6,18 @@
 	import { formatDate } from '$lib/utils';
 	import { page } from '$app/stores';
 
-	const { id } = $page.params;
-
 	let checklist = $state<SavedChecklist | undefined>(undefined);
 
 	onMount(() => {
+		const params = $page.url.searchParams;
+		const id = params.get('id') || '';
 		checklist = getChecklist(id);
 	});
 
 	function onCheck () {
-		updateChecklist(id, checklist);
+		if (checklist) {
+			updateChecklist(checklist);
+		}
 	}
 	
 </script>

@@ -30,7 +30,7 @@
 
 	function save() {
 		const id = saveChecklist(checklist);
-		goto(`/checklists/${id}`);
+		goto(`/checklists/edit?id=${id}`);
 	}
 </script>
 

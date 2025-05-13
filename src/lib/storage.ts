@@ -46,6 +46,6 @@ export function getChecklist(id: string): SavedChecklist | undefined {
 	return JSON.parse(checklist);
 }
 
-export function updateChecklist(id: string, checklist: SavedChecklist) {
-	window.localStorage.setItem(`checklist_${id}`, JSON.stringify(checklist));
+export function updateChecklist(checklist: SavedChecklist) {
+	window.localStorage.setItem(`checklist_${checklist.id}`, JSON.stringify(checklist));
 }

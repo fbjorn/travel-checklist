@@ -19,11 +19,11 @@
 
 <div class="mt-8 flex flex-col gap-4">
 	{#each checklists as checklist}
-		<a href={`/checklists/${checklist.id}`}>
+		<a href={`/checklists/edit?id=${checklist.id}`}>
 			<Card>
 				<CardHeader>
 					<CardTitle>{checklist.name}</CardTitle>
-                    <CardDescription>Packed {calcProgress(checklist)}% of items</CardDescription>
+                    <CardDescription>Packed {calcProgress(checklist)}% items</CardDescription>
 				</CardHeader>
 				<CardContent class="-mt-4">
 					<p class="text-sm text-gray-500">Created on {formatDate(checklist.date)}</p>

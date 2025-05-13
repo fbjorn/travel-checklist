@@ -41,8 +41,9 @@
 		
 		<!-- Desktop Navigation -->
 		<div class="hidden md:flex space-x-6">
+			<a href="/" class="hover:text-indigo-600 transition-colors">New checklist</a>
 			<a href="/about" class="hover:text-indigo-600 transition-colors">About</a>
-			<a href="/my-checklists" class="hover:text-indigo-600 transition-colors">My checklists</a>
+			<a href="/checklists" class="hover:text-indigo-600 transition-colors">My checklists</a>
 		</div>
 		
 		<!-- Mobile Menu Button -->
