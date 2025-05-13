@@ -44,3 +44,17 @@ export type Checklist = {
 	name: string
 	sections: Section[];
 };
+
+
+export type SavedChecklist = {
+	id: string;
+	name: string;
+	date: string;
+	sections: {
+		name: string
+		items: {
+			name: string
+			checked: boolean
+		}[]
+	}[]
+}

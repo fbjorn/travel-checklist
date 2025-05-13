@@ -6,6 +6,8 @@
 	import type { Extra } from '$lib/types';
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
+	import { saveChecklist } from '$lib/storage';
+	import { goto } from '$app/navigation';
 
 	let isEditing = $state(false);
 	let checklist = $state(makeChecklist(AllInOne));
@@ -25,6 +27,11 @@
 	}
 
 	let usedExtras = $state<Record<number, boolean>>({});
+
+	function save() {
+		const id = saveChecklist(checklist);
+		goto(`/checklists/${id}`);
+	}
 </script>
 
 <SEO
@@ -34,10 +41,7 @@
 />
 <div class="container2">
 	<div class="flex justify-center mt-10 mb-4">
-		<Input
-			class="font-medium max-w-[20rem] text-center md:text-xl"
-			bind:value={checklist.name}
-		/>
+		<Input class="font-medium max-w-[20rem] text-center md:text-xl" bind:value={checklist.name} />
 	</div>
 	<div class="extras">
 		{#each Extras as extra, index}
@@ -60,7 +64,7 @@
 	</div>
 
 	<div class="flex justify-center my-8">
-		<Button>Save {checklist.name}</Button>
+		<Button onclick={save}>Save {checklist.name}</Button>
 	</div>
 </div>
 
