@@ -55,11 +55,11 @@
 		<a href={`/checklists/edit?id=${checklist.id}`}>
 			<Card class="flex justify-between items-center p-4">
 				<div>
-					<CardTitle>{checklist.name}</CardTitle>
+					<CardTitle class="mb-2">{checklist.name}</CardTitle>
 					<CardDescription>Packed {calcProgress(checklist)}% items</CardDescription>
-					<p class="text-sm text-gray-500">Created on {formatDate(checklist.date)}</p>
+                    <CardDescription>Created on {formatDate(checklist.date)}</CardDescription>
 				</div>
-				<Button variant="outline" Icon={Trash} onclick={(e) => onDeleteClick(e, checklist)} />
+				<Button variant="outline" size="icon" Icon={Trash} onclick={(e) => onDeleteClick(e, checklist)} />
 			</Card>
 		</a>
 	{/each}

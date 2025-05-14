@@ -27,7 +27,7 @@
 		{#if isEditing}
 			<Input class="font-medium" type="text" bind:value={section.name} />
 		{:else}
-			<h2 class="text-md font-bold">{section.name}</h2>
+			<h2 class="text-md font-bold text-center">{section.name}</h2>
 		{/if}
 	</div>
 	<div class="flex flex-col gap-2 mb-2">

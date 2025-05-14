@@ -5,8 +5,15 @@
 	import ActiveCategory from '$lib/components/ActiveCategory.svelte';
 	import { formatDate } from '$lib/utils';
 	import { page } from '$app/stores';
+	import { Button } from '$lib/components/ui/button';
+	import EditIcon from '@lucide/svelte/icons/edit';
+	import SaveIcon from '@lucide/svelte/icons/save';
+	import ChevronDownUpIcon from '@lucide/svelte/icons/chevrons-down-up';
 
+	import { Input } from '$lib/components/ui/input';
 	let checklist = $state<SavedChecklist | undefined>(undefined);
+	let isEditing = $state(false);
+	let allCollapsed = $state(false);
 
 	onMount(() => {
 		const params = $page.url.searchParams;
@@ -14,27 +21,42 @@
 		checklist = getChecklist(id);
 	});
 
-	function onCheck () {
+	function onCheck() {
 		if (checklist) {
 			updateChecklist(checklist);
 		}
 	}
-	
+
+	function onEditToggle() {
+		if (isEditing && checklist) {
+			updateChecklist(checklist);
+		}
+		isEditing = !isEditing;
+	}
 </script>
 
 {#if checklist}
 	<div class="py-8">
 		<div class="mb-6">
-			<h1 class="text-3xl font-bold text-gray-900">{checklist.name}</h1>
+			{#if isEditing}
+				<Input class="font-medium" type="text" bind:value={checklist.name} />
+			{:else}
+				<h1 class="text-3xl font-bold text-gray-900">{checklist.name}</h1>
+			{/if}
 			<p class="text-gray-600 mt-1">Created on {formatDate(checklist.date)}</p>
+				<Button
+					variant={isEditing ? 'secondary' : 'outline'}
+					Icon={isEditing ? SaveIcon : EditIcon}
+					onclick={onEditToggle}
+					class="mt-4"
+				>
+					{isEditing ? 'Save' : 'Edit'}
+				</Button>
 		</div>
-		
+
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 			{#each checklist.sections as _, index}
-				<ActiveCategory 
-					bind:section={checklist.sections[index]}
-					oncheck={onCheck}
-				/>
+				<ActiveCategory bind:section={checklist.sections[index]} oncheck={onCheck} {isEditing} />
 			{/each}
 		</div>
 	</div>
