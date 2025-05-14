@@ -35,8 +35,10 @@ export function saveChecklist(checklist: Checklist): string {
 
 export function deleteChecklist(id: string) {
 	const ids = getChecklistIds();
+	console.log(ids);
 	window.localStorage.removeItem(`checklist_${id}`);
-	window.localStorage.setItem('checklist_ids', JSON.stringify(ids.filter((id) => id !== id)));
+	console.log(ids.filter((_id) => _id !== id));
+	window.localStorage.setItem('checklist_ids', JSON.stringify(ids.filter((_id) => _id !== id)));
 }
 
 export function getChecklist(id: string): SavedChecklist | undefined {
