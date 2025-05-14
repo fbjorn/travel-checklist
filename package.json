@@ -10,7 +10,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"machine-translate": "inlang machine translate --project project.inlang"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
@@ -39,11 +40,14 @@
 		"tailwindcss-animate": "^1.0.7",
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.0.0",
-		"vite": "^6.0.0"
+		"vite": "^6.0.0",
+		"@inlang/paraglide-js": "2.0.12",
+		"@inlang/cli": "^3.0.0"
 	},
 	"dependencies": {
 		"@fontsource-variable/manrope": "^5.2.5",
 		"@fontsource-variable/nunito": "^5.2.5",
+		"@inlang/paraglide-js": "^2.0.12",
 		"@inlang/paraglide-sveltekit": "^0.11.1",
 		"sass": "^1.85.1"
 	}

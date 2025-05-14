@@ -1,4 +1,4 @@
-import { paraglide } from '@inlang/paraglide-sveltekit/vite';
+import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import svg from '@poppanator/sveltekit-svg';
@@ -9,9 +9,10 @@ export default defineConfig({
 	},
 	plugins: [
 		sveltekit(),
-		paraglide({
+		paraglideVitePlugin({
 			project: './project.inlang',
-			outdir: './src/lib/paraglide'
+			outdir: './src/lib/paraglide',
+			strategy: ["localStorage", "baseLocale"]
 		}),
 		svg()
 	]

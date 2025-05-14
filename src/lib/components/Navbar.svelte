@@ -4,6 +4,7 @@
 	import { X, Menu } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 	import * as m from '$lib/paraglide/messages';
+	import LanguageSwitcher from './LanguageSwitcher.svelte';
 
 	let mobileMenuOpen = $state(false);
 	let isMobile = $state(false);
@@ -45,6 +46,7 @@
 			<a href="/" class="hover:text-indigo-600 transition-colors">{m.new_checklist()}</a>
 			<a href="/about" class="hover:text-indigo-600 transition-colors">{m.about()}</a>
 			<a href="/checklists" class="hover:text-indigo-600 transition-colors">{m.my_checklists()}</a>
+			<LanguageSwitcher />
 		</div>
 		
 		<!-- Mobile Menu Button -->
@@ -94,6 +96,7 @@
 		>
 			{m.my_checklists()}
 		</a>
+        <LanguageSwitcher mobile/>
 	</div>
 </div>
 {/if} 
