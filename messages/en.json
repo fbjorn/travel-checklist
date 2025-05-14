@@ -111,5 +111,28 @@
 	"sailing_gloves": "Sailing gloves",
 	"skipper": "Skipper",
 	"sailing": "Sailing",
-	"fleece_jacket": "Fleece jacket"
+	"fleece_jacket": "Fleece jacket",
+	
+	"hello_stranger": "Hello stranger",
+	"save": "Save",
+	"save_checklist": "Save {name}",
+	"no_checklists_found": "No checklists found",
+	"packed_percentage": "Packed {percentage}% items",
+	"created_on": "Created on {date}",
+	"remove_checklist": "Remove {name}?",
+	"action_cannot_be_undone": "This action cannot be undone",
+	"cancel": "Cancel",
+	"continue_action": "Continue",
+	"save_action": "Save",
+	"edit_action": "Edit",
+
+	"item_name_placeholder": "Item name",
+	"app_title": "Travel Checklist Builder",
+	"new_checklist": "New checklist",
+	"about": "About",
+	"my_checklists": "My checklists",
+	"close_menu": "Close menu",
+	"open_menu": "Open menu",
+	"notes": "Notes",
+	"add_item_action": "add"
 }

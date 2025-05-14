@@ -13,6 +13,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import Trash from '@lucide/svelte/icons/trash';
 	import * as AlertDialog from '$lib/components/ui/alert-dialog';
+	import * as m from '$lib/paraglide/messages';
 
 	let checklists = $state<SavedChecklist[]>([]);
 	let openDeleteDialog = $state(false);
@@ -49,15 +50,15 @@
 
 <div class="mt-8 flex flex-col gap-4">
 	{#if checklists.length === 0}
-		<div class="text-gray-500 mx-auto">No checklists found</div>
+		<div class="text-gray-500 mx-auto">{m.no_checklists_found()}</div>
 	{/if}
 	{#each checklists as checklist}
 		<a href={`/checklists/edit?id=${checklist.id}`}>
 			<Card class="flex justify-between items-center p-4">
 				<div>
 					<CardTitle class="mb-2">{checklist.name}</CardTitle>
-					<CardDescription>Packed {calcProgress(checklist)}% items</CardDescription>
-                    <CardDescription>Created on {formatDate(checklist.date)}</CardDescription>
+					<CardDescription>{m.packed_percentage({ percentage: calcProgress(checklist) })}</CardDescription>
+                    <CardDescription>{m.created_on({ date: formatDate(checklist.date) })}</CardDescription>
 				</div>
 				<Button variant="outline" size="icon" Icon={Trash} onclick={(e) => onDeleteClick(e, checklist)} />
 			</Card>
@@ -68,12 +69,12 @@
 <AlertDialog.Root bind:open={openDeleteDialog}>
 	<AlertDialog.Content>
 		<AlertDialog.Header>
-			<AlertDialog.Title>Remove {checklistToDelete?.name}?</AlertDialog.Title>
-			<AlertDialog.Description>This action cannot be undone</AlertDialog.Description>
+			<AlertDialog.Title>{m.remove_checklist({ name: checklistToDelete?.name ?? '' })}</AlertDialog.Title>
+			<AlertDialog.Description>{m.action_cannot_be_undone()}</AlertDialog.Description>
 		</AlertDialog.Header>
 		<AlertDialog.Footer>
-			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-			<AlertDialog.Action onclick={onDeleteConfirm}>Continue</AlertDialog.Action>
+			<AlertDialog.Cancel>{m.cancel()}</AlertDialog.Cancel>
+			<AlertDialog.Action onclick={onDeleteConfirm}>{m.continue_action()}</AlertDialog.Action>
 		</AlertDialog.Footer>
 	</AlertDialog.Content>
 </AlertDialog.Root>

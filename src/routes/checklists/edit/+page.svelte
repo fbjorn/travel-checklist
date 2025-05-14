@@ -8,12 +8,11 @@
 	import { Button } from '$lib/components/ui/button';
 	import EditIcon from '@lucide/svelte/icons/edit';
 	import SaveIcon from '@lucide/svelte/icons/save';
-	import ChevronDownUpIcon from '@lucide/svelte/icons/chevrons-down-up';
+	import * as m from '$lib/paraglide/messages';
 
 	import { Input } from '$lib/components/ui/input';
 	let checklist = $state<SavedChecklist | undefined>(undefined);
 	let isEditing = $state(false);
-	let allCollapsed = $state(false);
 
 	onMount(() => {
 		const params = $page.url.searchParams;
@@ -43,14 +42,14 @@
 			{:else}
 				<h1 class="text-3xl font-bold text-gray-900">{checklist.name}</h1>
 			{/if}
-			<p class="text-gray-600 mt-1">Created on {formatDate(checklist.date)}</p>
+			<p class="text-gray-600 mt-1">{m.created_on({ date: formatDate(checklist.date) })}</p>
 				<Button
 					variant={isEditing ? 'secondary' : 'outline'}
 					Icon={isEditing ? SaveIcon : EditIcon}
 					onclick={onEditToggle}
 					class="mt-4"
 				>
-					{isEditing ? 'Save' : 'Edit'}
+					{isEditing ? m.save_action() : m.edit_action()}
 				</Button>
 		</div>
 

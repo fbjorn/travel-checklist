@@ -2,6 +2,7 @@
 	import AppleNotesIcon from '$lib/assets/apple-notes.svg?component';
 	import { exportToAppleNotes } from '$lib/exporters';
 	import type { Checklist } from '$lib/types';
+	import * as m from '$lib/paraglide/messages';
 
 	let { checklist }: { checklist: Checklist } = $props();
 
@@ -15,7 +16,7 @@
 
 <button class="apple-notes" onclick={exportChecklist}>
 	<AppleNotesIcon />
-	<span>Notes</span>
+	<span>{m.notes()}</span>
 </button>
 
 <style lang="scss">

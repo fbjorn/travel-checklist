@@ -9,6 +9,7 @@
 	import AddIcon from '$lib/assets/plus-icon.svg?component';
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
+	import * as m from '$lib/paraglide/messages';
 
 	type Item = {
 		name: string;
@@ -100,14 +101,14 @@
 			
 			{#if isEditing && !showAddItemInput}
 				<div class="mt-4">
-					<Button variant="ghost" size="sm" Icon={AddIcon} onclick={() => (showAddItemInput = true)}>add</Button>
+					<Button variant="ghost" size="sm" Icon={AddIcon} onclick={() => (showAddItemInput = true)}>{m.add_item_action()}</Button>
 				</div>
 			{/if}
 			
 			{#if showAddItemInput}
 				<form class="mt-4" onsubmit={addItem}>
 					<div class="flex items-center gap-2">
-						<Input placeholder="Item name" bind:value={newItemName} />
+						<Input placeholder={m.item_name_placeholder()} bind:value={newItemName} />
 						<Button variant="ghost" size="sm" Icon={AddIcon} type="submit" />
 					</div>
 				</form>

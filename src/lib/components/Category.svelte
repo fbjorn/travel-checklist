@@ -5,6 +5,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Card } from '$lib/components/ui/card';
 	import { Input } from '$lib/components/ui/input';
+	import * as m from '$lib/paraglide/messages';
 
 	let { section, isEditing = false }: { section: Section; isEditing: boolean } = $props();
 
@@ -43,11 +44,11 @@
 		{/each}
 	</div>
 	{#if isEditing && !showAddItemInput}
-		<Button variant="ghost" size="sm" Icon={AddIcon} onclick={() => (showAddItemInput = true)}>add</Button>
+		<Button variant="ghost" size="sm" Icon={AddIcon} onclick={() => (showAddItemInput = true)}>{m.add_item_action()}</Button>
 	{/if}
 	{#if showAddItemInput}
 		<form class="" onsubmit={addItem}>
-			<input placeholder="Item name" bind:value={newItemName} />
+			<input placeholder={m.item_name_placeholder()} bind:value={newItemName} />
 			<Button variant="ghost" size="sm" Icon={AddIcon} type="submit" />
 		</form>
 	{/if}

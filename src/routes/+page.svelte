@@ -8,6 +8,7 @@
 	import { Input } from '$lib/components/ui/input';
 	import { saveChecklist } from '$lib/storage';
 	import { goto } from '$app/navigation';
+	import * as m from '$lib/paraglide/messages';
 
 	let isEditing = $state(false);
 	let checklist = $state(makeChecklist(AllInOne));
@@ -55,7 +56,7 @@
 		{/each}
 	</div>
 	<div class="mb-4">
-		<Button variant="outline" Icon={EditIcon} onclick={() => (isEditing = !isEditing)}>Edit</Button>
+		<Button variant="outline" Icon={EditIcon} onclick={() => (isEditing = !isEditing)}>{m.edit_action()}</Button>
 	</div>
 	<div class="categories">
 		{#each checklist.sections as section}
@@ -64,7 +65,7 @@
 	</div>
 
 	<div class="flex justify-center my-8">
-		<Button onclick={save}>Save {checklist.name}</Button>
+		<Button onclick={save}>{m.save_checklist({ name: checklist.name })}</Button>
 	</div>
 </div>
 

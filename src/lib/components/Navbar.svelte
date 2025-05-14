@@ -3,6 +3,7 @@
 	import Button from './Button.svelte';
 	import { X, Menu } from '@lucide/svelte';
 	import { onMount } from 'svelte';
+	import * as m from '$lib/paraglide/messages';
 
 	let mobileMenuOpen = $state(false);
 	let isMobile = $state(false);
@@ -37,20 +38,20 @@
 
 <nav class="w-full bg-white shadow-sm rounded-md max-w-[80rem] mx-auto">
 	<div class="container mx-auto px-4 py-3 flex justify-between items-center">
-		<div class="font-bold text-xl">Travel Checklist Builder</div>
+		<div class="font-bold text-xl">{m.app_title()}</div>
 		
 		<!-- Desktop Navigation -->
 		<div class="hidden md:flex space-x-6">
-			<a href="/" class="hover:text-indigo-600 transition-colors">New checklist</a>
-			<a href="/about" class="hover:text-indigo-600 transition-colors">About</a>
-			<a href="/checklists" class="hover:text-indigo-600 transition-colors">My checklists</a>
+			<a href="/" class="hover:text-indigo-600 transition-colors">{m.new_checklist()}</a>
+			<a href="/about" class="hover:text-indigo-600 transition-colors">{m.about()}</a>
+			<a href="/checklists" class="hover:text-indigo-600 transition-colors">{m.my_checklists()}</a>
 		</div>
 		
 		<!-- Mobile Menu Button -->
 		<button 
 			class="md:hidden"
 			onclick={toggleMobileMenu}
-			aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+			aria-label={mobileMenuOpen ? m.close_menu() : m.open_menu()}
 		>
 			{#if mobileMenuOpen}
 				<X size={24} />
@@ -77,21 +78,21 @@
 			class="hover:text-indigo-600 transition-colors"
 			onclick={toggleMobileMenu}
 		>
-			New checklist
+			{m.new_checklist()}
 		</a>
 		<a 
 			href="/about" 
 			class="hover:text-indigo-600 transition-colors"
 			onclick={toggleMobileMenu}
 		>
-			About
+			{m.about()}
 		</a>
 		<a 
 			href="/checklists" 
 			class="hover:text-indigo-600 transition-colors"
 			onclick={toggleMobileMenu}
 		>
-			My checklists
+			{m.my_checklists()}
 		</a>
 	</div>
 </div>
